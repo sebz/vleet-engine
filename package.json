@@ -1,0 +1,26 @@
+{
+  "name": "virtual-fleet",
+  "version": "0.0.1",
+  "description": "AirVantage systems fleet simulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [
+    "airvantage",
+    "system",
+    "fleet",
+    "simulator"
+  ],
+  "author": "sebz <sebzen@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "chance": "^0.7.6",
+    "jsonfile": "^2.2.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "mqtt": "^1.3.5"
+  }
+}
