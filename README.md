@@ -1,6 +1,6 @@
 Vleet engine
 ============
-> Virtual Fleet engine for AirVantage
+> Engine for Vleet (Virtual Fleet) simulator for AirVantage
 
 
 ## Usage
