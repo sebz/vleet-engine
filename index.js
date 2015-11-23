@@ -1,12 +1,18 @@
+"use strict";
+
+var _ = require("lodash");
 var AirVantage = require("airvantage");
-var jsonfile = require('jsonfile');
-var config = jsonfile.readFileSync("./config-na.json");
-var simulation = jsonfile.readFileSync("./simulations/" + config.simulation + ".json");
+var jsonfile = require("jsonfile");
+var setup = jsonfile.readFileSync("./setup.json");
+var serverConfig = jsonfile.readFileSync("./config/airvantage/" + setup.dataCenter + ".json");
+var credentials = _.extend({}, setup.credentials, serverConfig.credentials);
+
+var simulation = jsonfile.readFileSync("./config/simulations/" + setup.simulation + ".json");
 var Simulator = require("./lib/simulator");
 
 var airvantage = new AirVantage({
-    serverUrl: "https://" + config.server,
-    credentials: config.credentials,
+    serverUrl: "https://" + serverConfig.server,
+    credentials: credentials,
     debug: true
 });
 
@@ -15,7 +21,9 @@ var simulator = new Simulator({
     airvantageClient: airvantage,
     mode: "backToTheFuture",
     simulation: simulation,
-    configuration: config
+    configuration: {
+        server: serverConfig.server
+    }
 });
 
 airvantage.authenticate()
