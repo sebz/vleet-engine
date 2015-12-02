@@ -1,8 +1,7 @@
-function ServiceTypeGenerator() {
-}
+function ServiceTypeGenerator() {}
 
 ServiceTypeGenerator.prototype.generate = function() {
-  return "UTMS";
+    return "UTMS";
 };
 
 module.exports = ServiceTypeGenerator;
