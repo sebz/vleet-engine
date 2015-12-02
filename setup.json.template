@@ -1,6 +1,10 @@
+/////////////////////////////////////////////////////////////////////////////////////
+// WHEN DUPLICATING THIS TO INITIALIZE YOURS, DO NOT FORGET TO REMOVE THE COMMENTS //
+/////////////////////////////////////////////////////////////////////////////////////
 {
     "simulation": "trucks", // the name of your simulation file in ./config/simulations folder
-    "dataCenter": "eu", // or na
+    "dataCenter": "eu", // or na,
+    "companyUid": "notTheUserCompanyUid", // Optional (default is the user company)
     "credentials": {
         "username": "you@domain.com",
         "password": "yOuRs3cR3t!"

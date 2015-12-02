@@ -6,7 +6,6 @@ var jsonfile = require("jsonfile");
 var setup = jsonfile.readFileSync("./setup.json");
 var serverConfig = jsonfile.readFileSync("./config/airvantage/" + setup.dataCenter + ".json");
 var credentials = _.extend({}, setup.credentials, serverConfig.credentials);
-var companyUid = _.extend({}, setup.credentials, serverConfig.companyUid);
 
 var simulation = jsonfile.readFileSync("./config/simulations/" + setup.simulation + ".json");
 var Simulator = require("./lib/simulator");
@@ -14,7 +13,7 @@ var Simulator = require("./lib/simulator");
 var airvantage = new AirVantage({
     serverUrl: "https://" + serverConfig.server,
     credentials: credentials,
-    companyUid: companyUid,
+    companyUid: setup.companyUid,
     debug: true
 });
 
