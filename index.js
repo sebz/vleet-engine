@@ -13,6 +13,7 @@ var Simulator = require("./lib/simulator");
 var airvantage = new AirVantage({
     serverUrl: "https://" + serverConfig.server,
     credentials: credentials,
+    companyUid: setup.companyUid,
     debug: true
 });
 
