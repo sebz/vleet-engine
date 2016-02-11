@@ -1,7 +1,9 @@
+var chance = require("chance").Chance();
+
 function ServiceTypeGenerator() {}
 
 ServiceTypeGenerator.prototype.generate = function() {
-    return Chance.pick(["GPRS", "EDGE", "UMTS", "HSPA"]);
+    return chance.pick(["GPRS", "EDGE", "UMTS", "HSPA"]);
 };
 
 module.exports = ServiceTypeGenerator;
