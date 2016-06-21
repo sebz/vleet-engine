@@ -1,7 +1,9 @@
 function LatGenerator() {}
 
-LatGenerator.prototype.generate = function() {
+LatGenerator.prototype.generate = function(system) {
     var move = (Math.random() *0.25) - 0.12;
+    var labels = system.labels;
+
   // France/Paris
   // 126.9573
   var latitude = 48.8588 + move;

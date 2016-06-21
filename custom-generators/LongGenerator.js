@@ -1,8 +1,8 @@
 function LongGenerator() {}
 
-LongGenerator.prototype.generate = function() {
+LongGenerator.prototype.generate = function(system) {
     var move = (Math.random() *0.25) - 0.12;
-  
+  var labels = system.labels;
   // France/Paris
   // 126.9573
   var longitude = 2.3442 + move;
