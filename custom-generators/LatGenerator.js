@@ -1,63 +1,50 @@
 function LatGenerator() {}
 
 LatGenerator.prototype.generate = function(system) {
-    var move = (Math.random() *0.25) - 0.12;
-    var labels = system.labels;
-
-  // France/Paris
-  // 126.9573
-  var latitude = 48.8588 + move;
+  var labels = system.labels;
 
   for (var i = labels.length - 1; i >= 0; i--) {
     var label = labels[i]
 
     // Asia/Japan/Tokyo:
-    // 35.7755 - 36.2011
     if(label == "Tokyo")
-      return (35.7755 + move);
+      return Chance.latitude({min: 35.7755, max: 35.8955});
     
     // Asia/China/HongKong
-    // 126.9573
     if(label == "Hong Kong")
-      return (22.3364 + (Math.random() *0.05) - 0.025);
+      return Chance.latitude({min: 22.3364, max: 22.3614});
 
     // Asia/Australia/Sydney
-    // -33.8760
     if(label == "Sydney")
-      return (-33.8760 + move);
+      return Chance.latitude({min: -33.9960, max: -33.8760});
 
     // Asia/New Zealand/Wellington:
-    // 151.2158
     if(label == "Wellington")
-      return ( -41.31 + (Math.random() *0.05));
+      return Chance.latitude({min: -41.36, max: -41.31});
 
     // Asia/Korea/Seoul
-    // 37.4476
     if(label == "Seoul")
-      return (37.4476 + move);
+      return Chance.latitude({min: 37.4476, max: 37.5676});
 
     // America/Canada/Toronto
-    // 126.9573
     if(label == "Toronto")
-      return (43.85 + move);
+      return Chance.latitude({min: 43.85, max: 43.97});
 
     if(label == "Las Vegas")
-      return ( 36.1219 + (move * 0.5));
+      return Chance.latitude({min: 36.1219, max: 36.6219});
 
     if(label == "Orlando")
-      return ( 28.4805 + (move * 0.5));
+      return Chance.latitude({min: 28.4805, max: 28.9805});
 
     // America/Peru/Lima
-    // 126.9573
     if(label == "Lima")
-      return (-12.106 + (Math.random() *0.15));
+      return Chance.latitude({min: -12.256, max: -12.106});
 
     // EU/Austria/Wien
-    // 48.1997
     if(label == "Wien")
-      return (48.1997 + (Math.random() *0.1));
+      return Chance.latitude({min: 48.1997, max: 48.2997});
   };
-  return latitude;
+  return Chance.latitude({min: 48.8588, max: 48.9788});
 };
 
 module.exports = LatGenerator;

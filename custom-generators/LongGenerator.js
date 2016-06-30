@@ -1,63 +1,51 @@
 function LongGenerator() {}
 
 LongGenerator.prototype.generate = function(system) {
-    var move = (Math.random() *0.25) - 0.12;
   var labels = system.labels;
-  // France/Paris
-  // 126.9573
-  var longitude = 2.3442 + move;
 
   for (var i = labels.length - 1; i >= 0; i--) {
     var label = labels[i]
 
     // Japan/Tokyo:
-    // 140.3627 - 139.8683
     if(label == "Tokyo")
-      return (140 + move);
+      return Chance.longitude({min: 140, max: 140.12});
     
     // China/HongKong
-    // 126.9573
     if(label == "Hong Kong")
-      return (114.1895 + (Math.random() *0.1) - 0.05);
+      return Chance.longitude({min: 114.1895, max: 114.2395});
 
     // Australia/Sydney:
-    // 151.2158
     if(label == "Sydney")
-      return (151.215 + move);
+      return Chance.longitude({min: 151.215, max: 151.335});
 
     // New Zealand/Wellington:
-    // 151.2158
     if(label == "Wellington")
-      return (174.779 - (Math.random() *0.05));
+      return Chance.longitude({min: 174.779, max: 174.829});
 
     // Korea/Seoul
-    // 126.9573
     if(label == "Seoul")
-      return (127 + move);
+      return Chance.longitude({min: 127, max: 127.12});
 
     // America/Canada/Toronto
-    // 126.9573
     if(label == "Toronto")
-      return (-79.4437 + move);
+      return Chance.longitude({min: -79.5637, max: -79.4437});
 
     if(label == "Las Vegas")
-      return ( -115.1662 + (move * 0.5));
+      return Chance.longitude({min: -115.6662, max: -115.1662});
 
     if(label == "Orlando")
-      return ( -81.3709 + (move * 0.5));
+      return Chance.longitude({min: -81.8709, max: -81.3709});
 
     // America/Peru/Lima
-    // 126.9573
     if(label == "Lima")
-      return (-77.12 + (Math.random() *0.15));
+      return Chance.longitude({min: -77.27, max: -77.12});
 
     // EU/Austria/Wien
-    // 16.3550
     if(label == "Wien")
-      return (16.355 + (Math.random() *0.1));
+      return Chance.longitude({min: 16.355, max: 16.455});
   };
 
-  return longitude;
+  return return Chance.longitude({min: 2.3442, max: 2.4642});
 };
 
 module.exports = LongGenerator;
