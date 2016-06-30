@@ -20,7 +20,6 @@ var airvantage = new AirVantage({
 var factory = require("./lib/factory")(airvantage, simulation);
 var simulator = new Simulator({
     airvantageClient: airvantage,
-    mode: "backToTheFuture",
     simulation: simulation,
     configuration: {
         server: serverConfig.server
