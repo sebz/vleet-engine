@@ -16,7 +16,7 @@
   "author": "sebz <sebzen@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "airvantage": "0.0.2",
+    "airvantage": "^2.1.0",
     "bluebird": "^2.9.34",
     "chance": "^0.7.6",
     "csv-stringify": "^1.0.4",
