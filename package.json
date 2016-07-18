@@ -19,6 +19,7 @@
     "airvantage": "0.0.2",
     "bluebird": "^2.9.34",
     "chance": "^0.7.6",
+    "csv-stringify": "^1.0.4",
     "jsonfile": "^2.2.3",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
