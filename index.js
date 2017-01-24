@@ -55,5 +55,6 @@ airvantage.authenticate()
         }
     })
     .catch(function(error) {
-        console.error("# ERROR:", error.response.body);
+        console.error("# ERROR:", error.response ? error.response.body : error);
+        throw error;
     });
