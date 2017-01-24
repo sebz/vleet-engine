@@ -3,7 +3,22 @@
     "label": "virtual-trucks",
     "fleet": {
         "size": 1,
-        "namePrefix": "VTruck #"
+        "template": {
+            "namePrefix": "VTruck #",
+
+            // optional: randomly picked for each system,
+            // will be used to retrieve a reference firmware if any
+            // otherwise, pick one from the "firmware" list if any
+            "systemType": ["AR7552", "AR6220"],
+
+            // optional: if no reference firmware has been found pick one from this list
+            "firmware":["524f332fc46c46b2b92a8cd60acc7156", "6bd26c89baad4deb963b2ac2cc220e1a"],
+
+            // optional: randomly picked for each system subscriptions
+            "subscription": {
+                "operators": ["ATT", "Bouygues"]
+            }
+        }
     },
     "generation": {
         "mode": "backToTheFuture",
