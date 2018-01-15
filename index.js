@@ -26,10 +26,16 @@ var simulator = new Simulator({
     }
 });
 
+
+var clean = false;
+var args = process.argv.splice(process.execArgv.length + 2);
+if (args[0] == "clean")
+    clean = true;
+
 airvantage.authenticate()
     .then(function() {
         console.log("Authenticated");
-        if (simulation.clean) {
+        if (clean || simulation.clean) {
             return factory.clean();
         } else {
             return factory.initialize()
@@ -49,5 +55,6 @@ airvantage.authenticate()
         }
     })
     .catch(function(error) {
-        console.error("# ERROR:", error.response.body);
+        console.error("# ERROR:", error.response ? error.response.body : error);
+        throw error;
     });
