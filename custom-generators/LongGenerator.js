@@ -8,6 +8,9 @@ LongGenerator.prototype.generate = function(system) {
 
     for (var i = labels.length - 1; i >= 0; i--) {
         var label = labels[i];
+        console.log(labels);
+        console.log(i);
+        console.log(labels.length);
         switch (label) {
             case "Tokyo": // Japan/Tokyo:
                 return chance.longitude({
@@ -64,16 +67,16 @@ LongGenerator.prototype.generate = function(system) {
                     min: 16.355,
                     max: 16.455
                 });
-            default:
+            case "New York": // America/USA/New York
                 return chance.longitude({
-                    min: 2.2192,
-                    max: 2.4692
+                    min: -74.0,
+                    max: -73.743
                 });
         }
-        return chance.longitude({
-            min: 2.2192,
-            max: 2.4692
-        });
     }
+    return chance.longitude({
+        min: 2.2192,
+        max: 2.4692
+    });
 };
 module.exports = LongGenerator;
