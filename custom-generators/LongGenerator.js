@@ -8,9 +8,6 @@ LongGenerator.prototype.generate = function(system) {
 
     for (var i = labels.length - 1; i >= 0; i--) {
         var label = labels[i];
-        console.log(labels);
-        console.log(i);
-        console.log(labels.length);
         switch (label) {
             case "Tokyo": // Japan/Tokyo:
                 return chance.longitude({
@@ -71,6 +68,16 @@ LongGenerator.prototype.generate = function(system) {
                 return chance.longitude({
                     min: -74.0,
                     max: -73.743
+                });
+            case "Miami":
+                return chance.longitude({
+                    min: -80.3568,
+                    max: -80.2232
+                });
+            case "San Francisco":
+                return chance.longitude({
+                    min: -122.4893,
+                    max: -122.4064
                 });
         }
     }
