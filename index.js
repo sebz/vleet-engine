@@ -2,12 +2,24 @@
 
 var _ = require("lodash");
 var AirVantage = require("airvantage");
+
 var jsonfile = require("jsonfile");
-var setup = jsonfile.readFileSync("./setup.json");
+var setup = "";
+var clean = false;
+var args = process.argv.splice(process.execArgv.length + 2);
+console.log(args);
+if (args[0] == "clean")
+    clean = true;
+if(args[0] == "setup")
+    setup = jsonfile.readFileSync("./" + args[1]);
+else
+    setup = jsonfile.readFileSync("./setup.json");
+
 var serverConfig = jsonfile.readFileSync("./config/airvantage/" + setup.dataCenter + ".json");
 var credentials = _.extend({}, setup.credentials, serverConfig.credentials);
 
 var simulation = jsonfile.readFileSync("./config/simulations/" + setup.simulation + ".json");
+
 var Simulator = require("./lib/simulator");
 
 var airvantage = new AirVantage({
@@ -25,12 +37,6 @@ var simulator = new Simulator({
         server: serverConfig.server
     }
 });
-
-
-var clean = false;
-var args = process.argv.splice(process.execArgv.length + 2);
-if (args[0] == "clean")
-    clean = true;
 
 airvantage.authenticate()
     .then(function() {
