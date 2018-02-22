@@ -64,16 +64,26 @@ LongGenerator.prototype.generate = function(system) {
                     min: 16.355,
                     max: 16.455
                 });
-            default:
+            case "New York": // America/USA/New York
                 return chance.longitude({
-                    min: 2.2192,
-                    max: 2.4692
+                    min: -74.0,
+                    max: -73.743
+                });
+            case "Miami":
+                return chance.longitude({
+                    min: -80.3568,
+                    max: -80.2232
+                });
+            case "San Francisco":
+                return chance.longitude({
+                    min: -122.4893,
+                    max: -122.4064
                 });
         }
-        return chance.longitude({
-            min: 2.2192,
-            max: 2.4692
-        });
     }
+    return chance.longitude({
+        min: 2.2192,
+        max: 2.4692
+    });
 };
 module.exports = LongGenerator;

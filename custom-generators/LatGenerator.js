@@ -54,6 +54,21 @@ LatGenerator.prototype.generate = function(system) {
           min: 37.2506,
           max: 37.2956
         });
+      case "New York":
+        return chance.latitude({
+          min: 40.6297,
+          max: 40.7599
+        });
+      case "Miami":
+        return chance.latitude({
+          min: 25.7652,
+          max: 25.8568
+        });
+      case "San Francisco":
+        return chance.latitude({
+          min: 37.7153,
+          max: 37.7913
+        });
       case "Lima": // America/Peru/Lima
         return chance.latitude({
           min: -12.256,
@@ -63,11 +78,6 @@ LatGenerator.prototype.generate = function(system) {
         return chance.latitude({
           min: 48.1997,
           max: 48.2997
-        });
-      default:
-        return chance.latitude({
-          min: 48.7388,
-          max: 48.9788
         });
     }
   }

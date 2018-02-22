@@ -16,6 +16,41 @@ Have a look at [config/simulations/trucks.json.template](config/simulations/truc
 
 Let's say you want to simulate an alarm system, create a `alarmSystem.json` file in [config/simulations](config/simulations) folder. The name of the file will be used to reference your simulation.
 
+#### CSV Engine
+This engine simulate systems by reading csv file to get the data values for each system and send them to AirVantage.
+
+**Example:**
+```
+"generation": {
+        "mode": "csvEngine",
+        "csvEngine": {
+            "fileRepository": "~/GitHub/vleet-engine",
+            "csvOptions": {
+                "delimiter": {
+                    "wrap": "\"",
+                    "field": ";",
+                    "array": ",",
+                    "eol": "\n"
+                }
+            }
+        },
+        "data": {
+            "humidity": {
+                "timestamp": "TimeInt",
+                "value": "humidity"
+            },
+            "initValue": {
+                "timestamp": "TimeInt",
+                "value": "IsInitValue"
+            },
+            "quality": {
+                "timestamp": "TimeInt",
+                "value": "IQuality"
+            }
+        }
+    }
+```
+
 #### Need a custom data generator? 
 
 Add them in [custom-generators](custom-generators) folder.
